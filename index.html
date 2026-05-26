@@ -474,64 +474,6 @@
         }
 
         /* =========================================
-           TESTIMONIALS SECTION
-           ========================================= */
-        .testimonials {
-            padding: var(--section-padding);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .testimonial-card {
-            background: var(--surface-color);
-            padding: 3rem 2.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.4s var(--ease);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .quote-mark {
-            font-family: var(--font-heading);
-            font-size: 4rem;
-            color: var(--border-color);
-            line-height: 0;
-            margin-bottom: 2rem;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-primary);
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-
-        .testimonial-author strong {
-            display: block;
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            color: var(--text-primary);
-        }
-
-        .testimonial-author span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* =========================================
            COACHING SERVICES SECTION
            ========================================= */
         .services {
@@ -601,25 +543,87 @@
             margin-bottom: 1.5rem;
         }
 
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .service-card p {
             color: rgba(255,255,255,0.8);
-            margin-bottom: 3rem;
             font-size: 1.1rem;
             line-height: 1.7;
+        }
+
+        .service-card.featured p {
+            color: var(--text-secondary);
+        }
+
+        .service-bullets {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .service-bullets li {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-bullets li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .service-card.featured .service-bullets li {
+            color: var(--text-secondary);
+        }
+
+        .service-card.featured .service-bullets li::before {
+            color: var(--text-muted);
+        }
+
+        .service-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+        }
+
+        .service-price {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            color: rgba(255,255,255,0.9);
+        }
+
+        .service-card.featured .service-price {
+            color: var(--text-primary);
         }
 
         .service-card.featured .btn {
             background: var(--accent-color);
             color: #FFFFFF;
         }
-        
+
         .service-card.featured .btn:hover {
             background: var(--accent-hover);
         }
-        
+
         .service-card:not(.featured) .btn {
-            background: var(--surface-color);
-            color: var(--text-primary);
+            background: transparent;
+            color: var(--surface-color);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .service-card:not(.featured) .btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
         }
 
         /* =========================================
@@ -881,7 +885,7 @@
                 gap: 4rem;
             }
 
-            .features-grid, .testimonials-grid {
+            .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -915,7 +919,7 @@
                 text-align: center;
             }
 
-            .features-grid, .testimonials-grid, .services-grid, .footer-grid {
+            .features-grid, .services-grid, .footer-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -961,7 +965,6 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#approach">Approach</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#services">Services</a></li>
             </ul>
             <div class="nav-actions">
@@ -1014,7 +1017,7 @@
             </div>
             <div class="stat-item reveal">
                 <div class="stat-number">10+</div>
-                <div class="stat-label">Years Experience</div>
+                <div class="stat-label">Years of Coaching Experience</div>
             </div>
             <div class="stat-item reveal">
                 <div class="stat-number">PCC</div>
@@ -1086,48 +1089,6 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header reveal" style="text-align: center; margin: 0 auto;">
-                <span class="eyebrow">Client Impact</span>
-                <h2 class="fluid-h2">Voices of Transformation</h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <div>
-                        <div class="quote-mark">"</div>
-                        <p class="testimonial-text">Working with Shruti fundamentally shifted how I approach leadership. Her ability to hold space for the complex, unspoken challenges allowed me to find a clarity I didn't know was missing.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>Elena Rostova</strong>
-                        <span>VP of Product, TechFlow</span>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal" style="transition-delay: 0.1s;">
-                    <div>
-                        <div class="quote-mark">"</div>
-                        <p class="testimonial-text">Shruti doesn't just ask questions; she helps you unlock the architecture of your own thinking. The integration of art and agility into our sessions was nothing short of profound.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>Marcus Chen</strong>
-                        <span>Founder & CEO, Alva Design</span>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal" style="transition-delay: 0.2s;">
-                    <div>
-                        <div class="quote-mark">"</div>
-                        <p class="testimonial-text">A masterful coach. Her calm presence and incisive insights helped me navigate a major career transition with confidence and immense peace of mind. Highly recommended.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>Sarah Jenkins</strong>
-                        <span>Creative Director, Studio North</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- SERVICES -->
     <section id="services" class="services">
         <div class="container">
@@ -1137,27 +1098,47 @@
             </div>
             <div class="services-grid">
                 <div class="service-card featured reveal">
-                    <span class="badge" style="margin-bottom: 1.5rem; display: inline-block;">Start Here</span>
-                    <h3 class="fluid-h2">Discovery Call</h3>
-                    <div class="service-meta">
-                        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 30 Minutes</span>
-                        <span>&middot;</span>
-                        <span>Complimentary</span>
+                    <div>
+                        <span class="badge" style="margin-bottom: 1.5rem; display: inline-block;">Start Here</span>
+                        <h3 class="fluid-h2">Discovery Call</h3>
+                        <div class="service-meta">
+                            <span>30 Minutes</span>
+                            <span>&middot;</span>
+                            <span>No Charge</span>
+                        </div>
+                        <p style="margin-top: 1.5rem;">A gentle first conversation. Come as you are — no agenda, no preparation needed. We'll explore whether working together feels right.</p>
+                        <ul class="service-bullets">
+                            <li>30 mins, video call</li>
+                            <li>Bring any question, or none at all</li>
+                            <li>Honest about fit — for both of us</li>
+                        </ul>
                     </div>
-                    <p>A gentle, spacious first conversation. Come exactly as you are—no agenda, no preparation needed. We will explore what's on your mind and see if our partnership feels right.</p>
-                    <a href="https://calendly.com/shruti-kulkarni9/discovery-call" target="_blank" class="btn btn-primary">Schedule Discovery</a>
+                    <div class="service-footer">
+                        <a href="https://calendly.com/shruti-kulkarni9/discovery-call" target="_blank" class="btn btn-primary">Book now &rarr;</a>
+                        <span class="service-price">Free</span>
+                    </div>
                 </div>
-                
+
                 <div class="service-card reveal" style="transition-delay: 0.1s;">
-                    <span class="badge" style="background: transparent; color: white; margin-bottom: 1.5rem; display: inline-block;">Core Engagement</span>
-                    <h3 class="fluid-h2">1:1 Coaching</h3>
-                    <div class="service-meta">
-                        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 60 Minutes per session</span>
-                        <span>&middot;</span>
-                        <span>Ongoing</span>
+                    <div>
+                        <span class="badge" style="margin-bottom: 1.5rem; display: inline-block;">1:1 Coaching</span>
+                        <h3 class="fluid-h2">Coaching Engagement</h3>
+                        <div class="service-meta">
+                            <span>60 Minutes</span>
+                            <span>&middot;</span>
+                            <span>Individual or Ongoing</span>
+                        </div>
+                        <p style="margin-top: 1.5rem;">A dedicated space — to think clearly, move through what's stuck, find what's next. Single sessions and ongoing engagements available.</p>
+                        <ul class="service-bullets">
+                            <li>60 mins, video call &middot; biweekly cadence typical</li>
+                            <li>Single sessions or 6 / 12-session arcs</li>
+                            <li>Reflection prompts between sessions</li>
+                        </ul>
                     </div>
-                    <p>A dedicated, rigorous space for you to think clearly, move through what feels stuck, and architect what comes next. Available as targeted 3-month or ongoing 6-month engagements.</p>
-                    <a href="#" class="btn">View Coaching Packages</a>
+                    <div class="service-footer">
+                        <a href="https://calendly.com/shruti-kulkarni9/discovery-call" target="_blank" class="btn btn-outline">Schedule &rarr;</a>
+                        <span class="service-price">On request</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1233,7 +1214,6 @@
                     <ul class="footer-links">
                         <li><a href="#about">About Shruti</a></li>
                         <li><a href="#approach">Methodology</a></li>
-                        <li><a href="#testimonials">Client Stories</a></li>
                         <li><a href="#services">Services & Pricing</a></li>
                     </ul>
                 </div>
