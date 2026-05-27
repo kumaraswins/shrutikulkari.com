@@ -46,7 +46,6 @@ Responsive breakpoints: `1024px` (tablet — collapses multi-column grids) and `
 - Booking: `https://calendly.com/shruti-kulkarni9/discovery-call`
 - LinkedIn: `https://www.linkedin.com/in/shrutikulkarni405`
 - Instagram: `https://www.instagram.com/shruti.coaches`
-- Contact email: `hello@shrutikulkarni.com`
 
 ## Images
 
